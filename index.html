@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ashidha P | Senior QA Engineer | Playwright Test Automation</title>
+<meta name="description" content="Ashidha P is a Senior QA Engineer with 8+ years of experience in Playwright test automation, API, performance and mobile testing, and AI-augmented testing with GitHub Copilot, AI Agents and MCP. Based in Calicut, India.">
+<link rel="canonical" href="https://ashidhahussain.github.io/Senior-QA-Engineer/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ashidha P | Senior QA Engineer">
+<meta property="og:description" content="8+ years in test automation (Playwright), API, performance and mobile testing, plus AI-augmented QA.">
+<meta property="og:url" content="https://ashidhahussain.github.io/Senior-QA-Engineer/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ashidha P | Senior QA Engineer">
+<meta name="twitter:description" content="8+ years in test automation (Playwright), API, performance and mobile testing, plus AI-augmented QA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#f7f4ee;--surface:#fff;--ink:#2b2823;--muted:#6e6a62;--line:#e4dfd4;--accent:#0f6b52;--accent-soft:#e3f0ea;
+--s1:8px;--s2:16px;--s3:24px;--s4:32px;--s6:48px;--s8:64px;--s12:96px;
+--r:16px;--r-pill:999px;--shadow:0 1px 2px rgba(43,40,35,.04),0 8px 24px rgba(43,40,35,.06);
+--display:'Fraunces',Georgia,'Times New Roman',serif;--body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+--ease:200ms ease-out
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 var(--s3)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.15;margin:0;color:var(--ink)}
+h1{font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-.02em}
+h2{font-size:clamp(1.75rem,3.5vw,2.25rem);letter-spacing:-.01em;margin-bottom:var(--s4)}
+h3{font-size:1.25rem}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+::selection{background:rgba(15,107,82,.18);color:var(--ink)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--surface);padding:8px 16px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+.eyebrow{display:block;font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--s1)}
+section{padding:var(--s12) 0;border-top:1px solid var(--line);scroll-margin-top:72px}
+section.hero{border-top:0;padding:var(--s8) 0 var(--s12)}
+.muted{color:var(--muted)}
+
+nav{position:sticky;top:0;z-index:50;background:rgba(247,244,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:var(--s2)}
+.brand{font-family:var(--display);font-weight:600;font-size:1.125rem;color:var(--ink);text-decoration:none}
+nav ul{display:flex;gap:var(--s1);list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+nav ul::-webkit-scrollbar{display:none}
+nav li a{display:block;padding:8px 12px;border-radius:var(--r-pill);font-size:.875rem;font-weight:500;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color var(--ease),background var(--ease)}
+nav li a:hover{color:var(--ink)}
+nav li a.active{color:var(--accent);background:var(--accent-soft)}
+
+.hero-grid{display:grid;grid-template-columns:1fr 280px;gap:var(--s8);align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent);font-size:.875rem;font-weight:600;margin-bottom:var(--s3)}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.role{font-size:1.125rem;color:var(--muted);margin-top:var(--s2);font-weight:500}
+.value{margin-top:var(--s3);font-size:1.125rem;max-width:56ch}
+.cta{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s4)}
+.btn{display:inline-block;padding:14px 28px;border-radius:var(--r-pill);font-weight:600;font-size:.9375rem;text-decoration:none;transition:background var(--ease),transform var(--ease),border-color var(--ease)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#0b5441}
+.btn-ghost{border:1px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--bg)}
+.avatar{width:280px;height:280px;border-radius:50%;object-fit:cover;border:6px solid var(--surface);box-shadow:var(--shadow);justify-self:center}
+.facts{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);margin-top:var(--s4);font-size:.9375rem;color:var(--muted)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:var(--s4)}
+.about p+p{margin-top:var(--s2)}
+.about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:var(--s4)}
+.domains{display:flex;flex-wrap:wrap;gap:var(--s1);margin-top:var(--s2)}
+
+.timeline{position:relative;margin:0;padding:0 0 0 var(--s4);list-style:none}
+.timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.timeline>li{position:relative;margin-bottom:var(--s3)}
+.timeline>li::before{content:"";position:absolute;left:-32px;top:36px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.timeline>li.compact::before{top:20px;border-color:var(--muted);width:12px;height:12px;left:-30px}
+.job-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s1) var(--s2);align-items:baseline}
+.dates{font-size:.875rem;font-weight:500;color:var(--muted)}
+.company{color:var(--accent);font-weight:600;margin:4px 0 var(--s2)}
+.card ul{margin:0;padding-left:20px}
+.card li+li{margin-top:var(--s1)}
+.compact .card{padding:var(--s2) var(--s3);box-shadow:none}
+.compact .job-head h3{font-size:1.0625rem}
+.compact p{margin-top:4px;font-size:.9375rem;color:var(--muted)}
+
+.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s3)}
+.skill-grid h3{font-size:1rem;font-family:var(--body);margin-bottom:var(--s2)}
+.pills{display:flex;flex-wrap:wrap;gap:var(--s1);list-style:none;margin:0;padding:0}
+.pills li,.tag{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;padding:6px 14px;min-height:34px;line-height:1.2;border-radius:var(--r-pill);background:var(--bg);border:1px solid var(--line);font-size:.8125rem;font-weight:500;transition:border-color var(--ease),color var(--ease)}
+.pills li:hover{border-color:var(--accent);color:var(--accent)}
+.tag{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
+
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s3)}
+.proj{padding:var(--s3);transition:border-color var(--ease),transform var(--ease)}
+.proj:hover{border-color:var(--accent);transform:translateY(-2px)}
+.proj h3{font-size:1.0625rem;margin-bottom:var(--s1)}
+.proj p{font-size:.9375rem;color:var(--muted)}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:var(--s2)}
+.list li{padding-bottom:var(--s2);border-bottom:1px solid var(--line)}
+.list li:last-child{border:0;padding:0}
+.list strong{display:block;font-weight:600}
+.list span{font-size:.9375rem;color:var(--muted)}
+
+.contact{text-align:center}
+.contact .card{padding:var(--s8) var(--s4)}
+.contact p.lead{max-width:52ch;margin:0 auto var(--s4);color:var(--muted)}
+.contact-links{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--s3);margin-top:var(--s4);font-weight:500}
+footer{padding:var(--s4) 0;border-top:1px solid var(--line);font-size:.875rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s1)}
+#top{position:fixed;right:24px;bottom:24px;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--accent);box-shadow:var(--shadow);cursor:pointer;font-size:1.25rem;opacity:0;pointer-events:none;transition:opacity var(--ease)}
+#top.show{opacity:1;pointer-events:auto}
+
+.reveal{opacity:0;transform:translateY(12px);transition:opacity 250ms ease-out,transform 250ms ease-out}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:860px){
+.hero-grid{grid-template-columns:1fr;text-align:left}
+.avatar{order:-1;width:200px;height:200px;justify-self:start}
+.about-grid,.two,.skill-grid,.proj-grid{grid-template-columns:1fr}
+section{padding:var(--s8) 0}
+.brand{display:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+*{transition:none!important}
+.reveal{opacity:1;transform:none}
+}
+
+@media print{
+nav,.btn,.cta,#top,.badge,footer .wrap a{display:none!important}
+body{background:#fff;font-size:11pt}
+.reveal{opacity:1;transform:none}
+section{padding:16px 0;border-top:1px solid #ccc;break-inside:avoid-page}
+.card{box-shadow:none;border:0;padding:8px 0}
+.hero-grid{grid-template-columns:1fr 120px;gap:16px}
+.avatar{width:110px;height:110px;border:0;box-shadow:none}
+.timeline::before,.timeline>li::before{display:none}
+.timeline{padding:0}
+.about-grid,.two,.skill-grid,.proj-grid{grid-template-columns:1fr 1fr}
+.contact .card{padding:0}
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav aria-label="Primary">
+<div class="wrap">
+<a class="brand" href="#home">Ashidha P</a>
+<ul>
+<li><a href="#home" class="active">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#certifications">Certifications</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<main id="main">
+
+<section class="hero" id="home" aria-label="Introduction">
+<div class="wrap hero-grid">
+<div>
+<span class="badge"><i aria-hidden="true"></i>Open to Work</span>
+<h1>Ashidha P</h1>
+<p class="role">Senior QA Engineer | Test Automation (Playwright) | AI-Augmented Testing</p>
+<p class="value">I build Playwright automation that runs in CI on every pull request, and use AI agents and MCP to generate tests and debug failures faster.</p>
+<div class="cta">
+<a class="btn btn-primary" href="mailto:ashidhaphussain@gmail.com">Get In Touch</a>
+<a class="btn btn-ghost" href="https://linkedin.com/in/ashidhap" target="_blank" rel="noopener">View LinkedIn</a>
+</div>
+<div class="facts"><span>Calicut, India</span><span>8+ years in QA</span><span>Agile/Scrum and Kanban</span></div>
+</div>
+<img class="avatar" src="Ashidha.JPG" alt="Ashidha P" width="280" height="280">
+</div>
+</section>
+
+<section id="about" aria-labelledby="about-h">
+<div class="wrap about">
+<span class="eyebrow">About</span>
+<h2 id="about-h">Quality work across web, mobile and APIs</h2>
+<div class="about-grid">
+<div class="reveal">
+<p>Senior QA Engineer with 8+ years of experience in test automation, manual, API, performance and mobile testing for web and mobile applications.</p>
+<p>My toolkit spans JavaScript/TypeScript, Postman, JMeter, SQL/MySQL, Jenkins, GitHub Actions and CI/CD. I also work with Generative AI, Prompt Engineering, GitHub Copilot, AI Agents and MCP-based testing for test generation, automation development, test data generation and debugging.</p>
+<p>My testing covers test planning, functional, regression, UAT, API, backend, accessibility, cross-browser and integration testing.</p>
+</div>
+<div class="card reveal">
+<span class="eyebrow">Domains</span>
+<div class="domains">
+<span class="tag">E-Commerce</span><span class="tag">Banking</span><span class="tag">Cards and Payments</span><span class="tag">Education</span><span class="tag">Media</span><span class="tag">Healthcare</span><span class="tag">ERP</span><span class="tag">Transportation</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="experience" aria-labelledby="exp-h">
+<div class="wrap">
+<span class="eyebrow">Experience</span>
+<h2 id="exp-h">Where I've worked</h2>
+<ol class="timeline">
+
+<li class="reveal"><article class="card">
+<div class="job-head"><h3>Senior QA Engineer</h3><span class="dates">May 2025 – Present</span></div>
+<p class="company">SE Mentor Solutions, Kochi, India</p>
+<ul>
+<li>Serve as Senior QA Engineer managing User Stories, Bugs, and Change Requests (CRs) across Agile/Scrum and Kanban methodologies, contributing to sprint planning, daily stand-ups, continuous testing, and AI-augmented QA practices.</li>
+<li>Designed and implemented end-to-end test automation using Playwright with JavaScript/TypeScript and Page Object Model (POM), integrating automated regression suites with GitHub Actions and Jenkins CI/CD pipelines for pull-request validation.</li>
+<li>Executed cross-browser testing across Chromium, Firefox, and WebKit; performed visual UI validation using screenshot comparison and leveraged Playwright Trace Viewer for efficient test failure analysis and debugging.</li>
+<li>Applied Generative AI, Prompt Engineering, GitHub Copilot, and AI-assisted QA practices to support test scenario generation, test-case development, test-data generation, automation-code optimization, debugging, and overall QA productivity.</li>
+<li>Explored AI Agents, Model Context Protocol (MCP), and Playwright MCP for AI-powered browser automation, test generation, execution, debugging, and integration of QA workflows with APIs, SQL databases, and other testing resources.</li>
+<li>Applied hands-on knowledge of Agentic AI, Claude Code, ContextQA, and n8n to explore intelligent QA workflows, AI-agent orchestration, test artifact generation, workflow automation, failure analysis, and test-coverage improvement.</li>
+</ul>
+</article></li>
+
+<li class="reveal"><article class="card">
+<div class="job-head"><h3>QA Engineer</h3><span class="dates">May 2021 – May 2025</span></div>
+<p class="company">SE Mentor Solutions, Kochi, India</p>
+<ul>
+<li>Served as QA Engineer managing User Stories, Bugs, and Change Request (CR) tickets across Agile/Scrum and Kanban sprints, contributing to sprint planning, daily stand-ups, and continuous testing practices.</li>
+<li>Utilized Azure DevOps and Zephyr (Jira) for end-to-end test management, including test case preparation, bug tracking, sprint-level status monitoring, and structured test-cycle reporting.</li>
+<li>Performed comprehensive Manual, Functional, PVT, Usability, Reliability, Sanity, Sprint Regression, and Acceptance Testing across multiple QA environments, validating bug fixes, enhancements, and user stories.</li>
+<li>Conducted API testing using Postman to validate endpoint behavior, request/response accuracy, status codes, business rules, and data integrity for API changes.</li>
+<li>Reproduced and resolved UAT customer-raised defects and owned Post-Release PVT, ensuring application stability and production quality following deployments.</li>
+<li>Conducted Knowledge Transfer (KT) sessions and story-ticket demo walkthroughs for new and existing QA team members, supporting onboarding, knowledge sharing, and team capability development.</li>
+</ul>
+</article></li>
+
+<li class="reveal"><article class="card">
+<div class="job-head"><h3>QA Specialist</h3><span class="dates">Aug 2018 – Apr 2021</span></div>
+<p class="company">Acodez IT Solutions Pvt. Ltd, Calicut, India</p>
+<ul>
+<li>Served as Scrum Master (Coach) and QA Lead for an Agile team, facilitating sprint planning, daily stand-ups, sprint reviews, and retrospectives while assigning, monitoring, and tracking team tasks to ensure sprint commitments were met.</li>
+<li>Led end-to-end test planning, test case design, and test scenario development based on user stories, product design specifications, and business requirements, updating documentation periodically to reflect requirement changes.</li>
+<li>Performed manual testing, including Smoke, Functional, Regression, System, Integration, and Exploratory testing, across web, native, and hybrid mobile platforms on iOS and Android devices.</li>
+<li>Executed cross-browser, cross-platform, and multi-device compatibility testing to identify UI/UX inconsistencies and functional issues, ensuring reliable test coverage across supported environments.</li>
+<li>Designed and executed load, stress, and performance testing using Apache JMeter, developing test plans and scripts to simulate real-world traffic, identify bottlenecks, and validate RESTful API performance across multiple test environments.</li>
+<li>Analyzed JMeter test results and generated performance reports, delivering actionable insights to the development team for performance tuning and optimization before production release.</li>
+<li>Tracked, prioritized, and managed defects using defect management tools, preparing detailed Bug Reports and Post-Release Testing Reports to support continuous quality improvement and reduce defect leakage.</li>
+</ul>
+</article></li>
+
+<li class="reveal"><article class="card">
+<div class="job-head"><h3>Software Tester Cum Trainer</h3><span class="dates">Jan 2018 – Jul 2018</span></div>
+<p class="company">Qtest Solutions, Calicut, India</p>
+<ul>
+<li>Acted as Junior QA Lead in an Agile team, facilitating Sprint Planning, Daily Stand-ups, and Retrospectives while resolving impediments to support sprint delivery and team velocity.</li>
+<li>Conducted web and mobile application testing across Android and iOS, covering functionality, usability, compatibility, and cross-platform behavior.</li>
+<li>Collaborated with the Product Owner and clients on requirement discussions, backlog refinement, prioritization, user-story validation, and acceptance criteria.</li>
+<li>Designed, executed, and reviewed functional, regression, and exploratory test cases, validating releases against user acceptance criteria (UAC) and established business standards.</li>
+<li>Developed and executed test automation scripts to reduce repetitive manual testing effort; delivered training on Manual Testing and Automation Testing fundamentals to junior team members.</li>
+</ul>
+</article></li>
+
+<li class="reveal"><article class="card">
+<div class="job-head"><h3>Business Analyst Cum QA Trainee</h3><span class="dates">Oct 2017 – Dec 2017</span></div>
+<p class="company">Sinnonteq Solutions, Calicut, India</p>
+<ul>
+<li>Supported User Acceptance Testing (UAT) by executing functional and non-functional test cases, documenting defects, and validating application behavior against business requirements.</li>
+<li>Analyzed business processes and translated customer needs into structured Business Requirement Documents (BRD), supporting clear communication between stakeholders and development teams.</li>
+<li>Prepared Test Analysis Reports and Defect Summary Reports, and contributed to activities defined in the Defect Prevention Plan to reduce recurring defects.</li>
+<li>Logged, tracked, retested, and verified defects using defect management tools; conducted peer reviews of test cases and supported client product training sessions.</li>
+</ul>
+</article></li>
+
+</ol>
+</div>
+</section>
+
+<section id="skills" aria-labelledby="skills-h">
+<div class="wrap">
+<span class="eyebrow">Skills</span>
+<h2 id="skills-h">Tools and methods</h2>
+<div class="skill-grid">
+<div class="card reveal"><h3>Testing</h3><ul class="pills"><li>Manual</li><li>Functional</li><li>Regression</li><li>UAT</li><li>Integration</li><li>Sanity</li><li>Acceptance</li><li>API</li><li>Backend</li><li>Performance</li><li>Cross-Browser</li><li>Accessibility (WCAG, axe DevTools)</li><li>AI-Augmented Testing</li></ul></div>
+<div class="card reveal"><h3>Automation &amp; AI Tools</h3><ul class="pills"><li>Playwright</li><li>Playwright MCP</li><li>Postman</li><li>Apache JMeter</li><li>GitHub Copilot</li><li>Claude Code</li><li>n8n</li><li>AI Agents</li><li>Generative AI</li><li>MCP (Model Context Protocol)</li></ul></div>
+<div class="card reveal"><h3>Languages &amp; Frameworks</h3><ul class="pills"><li>JavaScript</li><li>TypeScript</li><li>Playwright Test</li><li>Page Object Model (POM)</li><li>HTML</li><li>CSS</li></ul></div>
+<div class="card reveal"><h3>Database &amp; API</h3><ul class="pills"><li>SQL</li><li>MySQL</li><li>Database Validation</li><li>Backend Data Validation</li></ul></div>
+<div class="card reveal"><h3>CI/CD &amp; Version Control</h3><ul class="pills"><li>Git</li><li>GitHub</li><li>GitHub Actions</li><li>Jenkins</li><li>Docker</li><li>CI/CD</li></ul></div>
+<div class="card reveal"><h3>Test Management</h3><ul class="pills"><li>Jira</li><li>Zephyr</li><li>Azure DevOps</li><li>Mantis</li><li>ContextQA</li></ul></div>
+<div class="card reveal"><h3>AI &amp; Agentic QA</h3><ul class="pills"><li>Prompt Engineering</li><li>Agentic AI</li><li>AI-Assisted Test Generation</li><li>AI-Assisted Test Data Generation</li><li>AI-Powered Test Automation</li><li>MCP-Based Testing</li><li>AI-Assisted Debugging</li></ul></div>
+<div class="card reveal"><h3>Methodologies &amp; Core Competencies</h3><ul class="pills"><li>Agile/Scrum</li><li>Kanban</li><li>SDLC</li><li>STLC</li><li>Waterfall</li><li>Test Planning &amp; Design</li><li>Defect Management</li><li>Test Metrics &amp; Reporting</li><li>Requirement Analysis</li><li>Release Management</li><li>Stakeholder Management</li><li>Automation Framework Development</li><li>Test Maintenance</li></ul></div>
+</div>
+</div>
+</section>
+
+<section id="projects" aria-labelledby="proj-h">
+<div class="wrap">
+<span class="eyebrow">Projects</span>
+<h2 id="proj-h">Key projects</h2>
+<div class="proj-grid">
+<article class="card proj reveal"><h3>Assessment Master</h3><p>End-to-end online assessment platform to create and deliver tests to students, with auto-scored or manually marked responses; 4 modules: Designer, Manager, Marker and Teacher.</p></article>
+<article class="card proj reveal"><h3>E-Commerce Platform</h3><p>Functional, regression, API and automation testing of search, cart, checkout and payment flows.</p></article>
+<article class="card proj reveal"><h3>Hermes Pay</h3><p>Digital banking platform covering customer onboarding, account management, fund transfers, beneficiaries, and payment transactions. Performed functional, API, integration, regression, and database testing to ensure transaction accuracy and data integrity.</p></article>
+<article class="card proj reveal"><h3>Connect2MyDoctr</h3><p>Mobile application for patients to consult with doctors online.</p></article>
+<article class="card proj reveal"><h3>90+ MyTuition App</h3><p>Learning app for students from grades 5–12 with subject-wise chapters, topic tests, mock tests and previous-year questions.</p></article>
+<article class="card proj reveal"><h3>365 Pilots</h3><p>Transportation platform connecting companies to move loads across distances.</p></article>
+<article class="card proj reveal"><h3>MyBoss New Limited</h3><p>App that digitalizes print publications and newspapers for global readers.</p></article>
+<article class="card proj reveal"><h3>TrueParking</h3><p>Parking app that finds available slots by area using latitude and longitude.</p></article>
+<article class="card proj reveal"><h3>ATOZ Savings</h3><p>Digital advertising and promotion product shareable through social media.</p></article>
+<article class="card proj reveal"><h3>EventHub (Practice Project)</h3><p>Event discovery and ticket booking web application.</p></article>
+</div>
+</div>
+</section>
+
+<section id="education" aria-labelledby="edu-h">
+<div class="wrap">
+<span class="eyebrow">Education</span>
+<h2 id="edu-h">Academic background</h2>
+<div class="card reveal">
+<ul class="list">
+<li><strong>B.Tech in Computer Science &amp; Engineering</strong><span>University of Calicut, Kerala, India | 2013 – 2017 (73%)</span></li>
+<li><strong>Higher Secondary (Class 12)</strong><span>Kerala Board of Higher Secondary Education | 2011 – 2013 (88.16%)</span></li>
+<li><strong>Class 10</strong><span>Kerala Board of Public Examinations | 2010 – 2011 (92%)</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="certifications" aria-labelledby="cert-h">
+<div class="wrap">
+<span class="eyebrow">Certifications</span>
+<h2 id="cert-h">Credentials</h2>
+<div class="card reveal">
+<ul class="list">
+<li><strong>Certified Professional in Playwright Automation Testing</strong></li>
+<li><strong>Certified in AI Tools &amp; Build AI Agents for Testing &amp; QA Automation</strong></li>
+<li><strong>Certified in AI-Augmented Software Testing</strong></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="contact" class="contact" aria-labelledby="contact-h">
+<div class="wrap">
+<div class="card reveal">
+<span class="eyebrow">Contact</span>
+<h2 id="contact-h">Let's talk about your QA needs</h2>
+<p class="lead">I'm open to Senior QA and test automation roles. Email me and I'll reply with my availability.</p>
+<a class="btn btn-primary" href="mailto:ashidhaphussain@gmail.com">Get In Touch</a>
+<div class="contact-links">
+<a href="mailto:ashidhaphussain@gmail.com">ashidhaphussain@gmail.com</a>
+<a href="tel:+919048496668">+91 9048496668</a>
+<a href="https://linkedin.com/in/ashidhap" target="_blank" rel="noopener">linkedin.com/in/ashidhap</a>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap"><span>&copy; <span id="yr">2026</span> Ashidha P</span><a href="#home">Back to top</a></div>
+</footer>
+
+<button id="top" type="button" aria-label="Scroll to top">&uarr;</button>
+
+<script>
+(function () {
+
+    /* =========================================
+       YEAR
+    ========================================= */
+    var year = document.getElementById('yr');
+
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
+
+
+    /* =========================================
+       REDUCED MOTION
+    ========================================= */
+    var reduceMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+
+    /* =========================================
+       NAVIGATION
+    ========================================= */
+    var nav = document.querySelector('nav');
+    var navList = document.querySelector('nav ul');
+    var navLinks = document.querySelectorAll('nav li a');
+
+
+    /*
+     * Explicitly control anchor scrolling.
+     * This avoids relying on browser-native anchor
+     * scrolling and correctly accounts for the
+     * sticky navigation height.
+     */
+    navLinks.forEach(function (link) {
+
+        link.addEventListener('click', function (event) {
+
+            var href = link.getAttribute('href');
+
+            if (!href || href.charAt(0) !== '#') {
+                return;
+            }
+
+            var target = document.querySelector(href);
+
+            if (!target) {
+                return;
+            }
+
+            event.preventDefault();
+
+            var navHeight = nav ? nav.offsetHeight : 0;
+
+            var targetPosition =
+                target.getBoundingClientRect().top +
+                window.pageYOffset -
+                navHeight -
+                8;
+
+            window.scrollTo({
+                top: Math.max(0, targetPosition),
+                behavior: reduceMotion ? 'auto' : 'smooth'
+            });
+
+            if (history.pushState) {
+                history.pushState(null, '', href);
+            }
+
+            navLinks.forEach(function (item) {
+                item.classList.remove('active');
+                item.removeAttribute('aria-current');
+            });
+
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'true');
+        });
+
+    });
+
+
+    /* =========================================
+       SCROLL REVEAL
+    ========================================= */
+    var revealItems = document.querySelectorAll('.reveal');
+
+    if (
+        reduceMotion ||
+        !('IntersectionObserver' in window)
+    ) {
+
+        revealItems.forEach(function (element) {
+            element.classList.add('in');
+        });
+
+    } else {
+
+        var revealObserver = new IntersectionObserver(
+            function (entries) {
+
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add('in');
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.08,
+                rootMargin: '0px 0px -60px 0px'
+            }
+        );
+
+        revealItems.forEach(function (element) {
+            revealObserver.observe(element);
+        });
+
+    }
+
+
+    /* =========================================
+       ACTIVE NAVIGATION
+    ========================================= */
+
+    var sections = document.querySelectorAll(
+        'main section[id]'
+    );
+
+    var sectionMap = {};
+
+    navLinks.forEach(function (link) {
+
+        var id = link
+            .getAttribute('href')
+            .replace('#', '');
+
+        sectionMap[id] = link;
+
+    });
+
+
+    /*
+     * Highlight the currently visible section.
+     *
+     * IMPORTANT:
+     * Do NOT call scrollIntoView() here.
+     * Calling scrollIntoView() on the active
+     * navigation link can interfere with the
+     * document's vertical scrolling.
+     */
+    if ('IntersectionObserver' in window) {
+
+        var activeObserver = new IntersectionObserver(
+            function (entries) {
+
+                entries.forEach(function (entry) {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    var activeLink =
+                        sectionMap[entry.target.id];
+
+                    if (!activeLink) {
+                        return;
+                    }
+
+                    navLinks.forEach(function (link) {
+                        link.classList.remove('active');
+                        link.removeAttribute('aria-current');
+                    });
+
+                    activeLink.classList.add('active');
+                    activeLink.setAttribute(
+                        'aria-current',
+                        'true'
+                    );
+
+
+                    /*
+                     * If the navigation itself is horizontally
+                     * scrollable on a small screen, scroll ONLY
+                     * the nav container. This never moves the
+                     * document vertically.
+                     */
+                    if (
+                        navList &&
+                        navList.scrollWidth >
+                        navList.clientWidth
+                    ) {
+
+                        var linkLeft =
+                            activeLink.offsetLeft;
+
+                        var linkWidth =
+                            activeLink.offsetWidth;
+
+                        var desiredLeft =
+                            linkLeft -
+                            (navList.clientWidth / 2) +
+                            (linkWidth / 2);
+
+                        navList.scrollTo({
+                            left: Math.max(
+                                0,
+                                desiredLeft
+                            ),
+                            behavior:
+                                reduceMotion
+                                    ? 'auto'
+                                    : 'smooth'
+                        });
+                    }
+
+                });
+
+            },
+            {
+                rootMargin:
+                    '-20% 0px -65% 0px',
+                threshold: 0
+            }
+        );
+
+
+        sections.forEach(function (section) {
+            activeObserver.observe(section);
+        });
+
+    }
+
+
+    /* =========================================
+       SCROLL TO TOP
+    ========================================= */
+
+    var topButton =
+        document.getElementById('top');
+
+
+    function updateTopButton() {
+
+        if (!topButton) {
+            return;
+        }
+
+        if (window.pageYOffset > 600) {
+            topButton.classList.add('show');
+        } else {
+            topButton.classList.remove('show');
+        }
+    }
+
+
+    window.addEventListener(
+        'scroll',
+        updateTopButton,
+        { passive: true }
+    );
+
+
+    if (topButton) {
+
+        topButton.addEventListener(
+            'click',
+            function () {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior:
+                        reduceMotion
+                            ? 'auto'
+                            : 'smooth'
+                });
+
+            }
+        );
+
+    }
+
+
+    /* =========================================
+       INITIAL STATE
+    ========================================= */
+
+    updateTopButton();
+
+})();
+</script>
+
+</body>
+</html>
